@@ -78,9 +78,9 @@ export function ContactForm() {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Full Name</FormLabel>
+              <FormLabel>Name</FormLabel>
               <FormControl>
-                <Input placeholder="John Doe" {...field} />
+                <Input placeholder="Ihr Name" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -93,9 +93,9 @@ export function ContactForm() {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
+                <FormLabel>E-Mail</FormLabel>
                 <FormControl>
-                  <Input placeholder="you@example.com" {...field} />
+                  <Input placeholder="Ihre E-Mail-Adresse" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -107,9 +107,9 @@ export function ContactForm() {
             name="phone"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Phone Number</FormLabel>
+                <FormLabel>Telefonnummer</FormLabel>
                 <FormControl>
-                  <Input placeholder="(123) 456-7890" {...field} />
+                  <Input placeholder="z.B. 0171 1234567" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -122,18 +122,18 @@ export function ContactForm() {
           name="subject"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Subject</FormLabel>
+              <FormLabel>Betreff</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
                   <SelectTrigger>
-                    <SelectValue placeholder="Select a subject" />
+                    <SelectValue placeholder="Bitte wählen Sie einen Betreff" />
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  <SelectItem value="general">General Inquiry</SelectItem>
-                  <SelectItem value="service">Service Request</SelectItem>
-                  <SelectItem value="quote">Request a Quote</SelectItem>
-                  <SelectItem value="support">Technical Support</SelectItem>
+                  <SelectItem value="general">Allgemeine Anfrage</SelectItem>
+                  <SelectItem value="service">Leistungsanfrage</SelectItem>
+                  <SelectItem value="quote">Angebot anfordern</SelectItem>
+                  <SelectItem value="support">Technischer Support</SelectItem>
                   <SelectItem value="feedback">Feedback</SelectItem>
                 </SelectContent>
               </Select>
@@ -147,7 +147,7 @@ export function ContactForm() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Message</FormLabel>
+              <FormLabel>Nachricht</FormLabel>
               <FormControl>
                 <Textarea
                   placeholder="Please provide details about your inquiry..."
@@ -161,23 +161,12 @@ export function ContactForm() {
           )}
         />
 
-        <Button
+        <button
           type="submit"
-          className="w-full bg-yellow-500 hover:bg-yellow-600 text-black"
-          disabled={isSubmitting}
+          className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-4 rounded"
         >
-          {isSubmitting ? (
-            <>
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              Sending...
-            </>
-          ) : (
-            <>
-              <Send className="mr-2 h-4 w-4" />
-              Send Message
-            </>
-          )}
-        </Button>
+          Nachricht senden
+        </button>
       </form>
     </Form>
   );

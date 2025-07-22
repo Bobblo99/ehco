@@ -1,6 +1,5 @@
 import { BookingForm } from "@/components/booking-form";
 import { Card, CardContent } from "@/components/ui/card";
-import { services } from "@/lib/mock-data";
 
 export default function BookingPage() {
   return (
@@ -12,27 +11,6 @@ export default function BookingPage() {
             <p className="text-muted-foreground">
               Schedule your cooling therapy session with our expert therapists.
             </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            {services.map((service) => (
-              <Card key={service.id} className="bg-card">
-                <CardContent className="p-6">
-                  <h3 className="font-semibold text-lg mb-2">{service.name}</h3>
-                  <p className="text-muted-foreground text-sm mb-3">
-                    {service.description}
-                  </p>
-                  <div className="flex justify-between items-center">
-                    <span className="text-yellow-500 font-semibold">
-                      €{service.price}
-                    </span>
-                    <span className="text-sm text-muted-foreground">
-                      {service.duration} min
-                    </span>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
           </div>
 
           <Card>

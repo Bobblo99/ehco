@@ -1,7 +1,7 @@
-import { Separator } from '@/components/ui/separator';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
-import { Check, Award, Clock, Users, ThumbsUp, Star } from 'lucide-react';
+import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { Check, Award, Clock, Users, ThumbsUp, Star } from "lucide-react";
 
 export default function AboutPage() {
   return (
@@ -9,148 +9,164 @@ export default function AboutPage() {
       <div className="container mx-auto px-4">
         {/* Hero Section */}
         <div className="relative rounded-xl overflow-hidden mb-16">
-          <div 
+          <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ 
-              backgroundImage: "url('https://images.pexels.com/photos/236731/pexels-photo-236731.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')",
+            style={{
+              backgroundImage:
+                "url('https://images.pexels.com/photos/236731/pexels-photo-236731.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')",
               height: "100%",
-              width: "100%"
+              width: "100%",
             }}
           />
           <div className="absolute inset-0 bg-black/60" />
           <div className="relative z-10 py-20 px-6 text-center text-white">
-            <h1 className="text-4xl font-bold mb-4">About Alpha Cooling Professional</h1>
+            <h1 className="text-4xl font-bold mb-4">
+              Über Alpha Cooling Professional
+            </h1>
             <p className="text-xl max-w-3xl mx-auto">
-              We are dedicated to providing exceptional cooling solutions for businesses and industries.
+              Wir sind darauf spezialisiert, herausragende Kühllösungen für
+              Unternehmen und Industrie bereitzustellen.
             </p>
           </div>
         </div>
-        
-        {/* Our Story */}
+
+        {/* Unsere Geschichte */}
         <section className="mb-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold mb-6">Our Story</h2>
+              <h2 className="text-3xl font-bold mb-6">Unsere Geschichte</h2>
               <div className="space-y-4 text-lg">
                 <p>
-                  Founded in 2005, Alpha Cooling Professional began with a simple mission: to provide reliable, 
-                  energy-efficient cooling solutions for businesses. What started as a small team of dedicated 
-                  technicians has grown into a leading cooling service provider in the region.
+                  Gegründet im Jahr 2005, begann Alpha Cooling Professional mit
+                  einer einfachen Mission: Zuverlässige und energieeffiziente
+                  Kühllösungen für Unternehmen bereitzustellen. Was als kleines
+                  Team engagierter Techniker begann, hat sich zu einem führenden
+                  Anbieter in der Region entwickelt.
                 </p>
                 <p>
-                  Our commitment to excellence and customer satisfaction has been the driving force behind our 
-                  growth. We believe that every business deserves a comfortable environment with cooling systems 
-                  that are reliable, efficient, and environmentally friendly.
+                  Unser Engagement für Qualität und Kundenzufriedenheit ist der
+                  Motor unseres Wachstums. Wir glauben, dass jedes Unternehmen
+                  eine komfortable Umgebung mit zuverlässigen, effizienten und
+                  umweltfreundlichen Kühlsystemen verdient.
                 </p>
                 <p>
-                  Today, we serve a wide range of clients across various industries, bringing our expertise 
-                  and dedication to every project we undertake.
+                  Heute bedienen wir Kunden aus verschiedensten Branchen und
+                  bringen unser Fachwissen und unsere Hingabe in jedes Projekt
+                  ein.
                 </p>
               </div>
             </div>
             <div className="relative h-96 rounded-lg overflow-hidden">
-              <div 
+              <div
                 className="absolute inset-0 bg-cover bg-center"
-                style={{ 
-                  backgroundImage: "url('https://images.pexels.com/photos/8850593/pexels-photo-8850593.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')" 
+                style={{
+                  backgroundImage:
+                    "url('https://images.pexels.com/photos/8850593/pexels-photo-8850593.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')",
                 }}
               />
             </div>
           </div>
         </section>
-        
-        {/* Mission & Values */}
+
+        {/* Mission & Werte */}
         <section className="mb-16 py-16 px-6 bg-muted rounded-xl">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Our Mission & Values</h2>
+            <h2 className="text-3xl font-bold mb-4">Unsere Mission & Werte</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              We are guided by a clear mission and strong values that shape everything we do.
+              Unsere Arbeit wird von einer klaren Mission und starken Werten
+              geleitet.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-card p-6 rounded-lg shadow-sm">
               <div className="text-yellow-500 mb-4">
                 <ThumbsUp className="h-10 w-10" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Our Mission</h3>
+              <h3 className="text-xl font-semibold mb-3">Unsere Mission</h3>
               <p>
-                To provide exceptional cooling solutions that enhance comfort, efficiency, and productivity 
-                while minimizing environmental impact.
+                Herausragende Kühllösungen zu liefern, die Komfort, Effizienz
+                und Produktivität fördern und gleichzeitig die Umweltbelastung
+                minimieren.
               </p>
             </div>
-            
+
             <div className="bg-card p-6 rounded-lg shadow-sm">
               <div className="text-yellow-500 mb-4">
                 <Star className="h-10 w-10" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Our Vision</h3>
+              <h3 className="text-xl font-semibold mb-3">Unsere Vision</h3>
               <p>
-                To be the most trusted and innovative cooling solutions provider, known for excellence, 
-                reliability, and commitment to sustainability.
+                Der vertrauenswürdigste und innovativste Anbieter von
+                Kühllösungen zu sein – bekannt für Exzellenz, Zuverlässigkeit
+                und Nachhaltigkeit.
               </p>
             </div>
-            
+
             <div className="bg-card p-6 rounded-lg shadow-sm">
               <div className="text-yellow-500 mb-4">
                 <Check className="h-10 w-10" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Our Values</h3>
+              <h3 className="text-xl font-semibold mb-3">Unsere Werte</h3>
               <ul className="space-y-2">
                 <li className="flex items-start">
                   <div className="mr-2 mt-1 text-yellow-500">•</div>
-                  <span>Excellence in every service</span>
+                  <span>Exzellenz in jeder Dienstleistung</span>
                 </li>
                 <li className="flex items-start">
                   <div className="mr-2 mt-1 text-yellow-500">•</div>
-                  <span>Integrity and transparency</span>
+                  <span>Integrität und Transparenz</span>
                 </li>
                 <li className="flex items-start">
                   <div className="mr-2 mt-1 text-yellow-500">•</div>
-                  <span>Innovation and continuous improvement</span>
+                  <span>Innovation und stetige Verbesserung</span>
                 </li>
                 <li className="flex items-start">
                   <div className="mr-2 mt-1 text-yellow-500">•</div>
-                  <span>Environmental responsibility</span>
+                  <span>Verantwortung für die Umwelt</span>
                 </li>
               </ul>
             </div>
           </div>
         </section>
-        
-        {/* Our Team */}
+
+        {/* Unser Team
         <section className="mb-16">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Our Leadership Team</h2>
+            <h2 className="text-3xl font-bold mb-4">Unser Führungsteam</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Meet the experienced professionals who lead our company to success.
+              Lerne die erfahrenen Fachkräfte kennen, die unser Unternehmen zum
+              Erfolg führen.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 name: "Michael Richards",
-                position: "CEO & Founder",
-                bio: "With over 20 years of experience in the cooling industry, Michael leads our company with vision and expertise.",
-                image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                position: "CEO & Gründer",
+                bio: "Mit über 20 Jahren Erfahrung in der Kühltechnik führt Michael unser Unternehmen mit Weitblick und Fachwissen.",
+                image:
+                  "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
               },
               {
                 name: "Sarah Johnson",
-                position: "Technical Director",
-                bio: "Sarah oversees all technical operations, ensuring that our services meet the highest quality standards.",
-                image: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                position: "Technische Direktorin",
+                bio: "Sarah leitet alle technischen Abläufe und sorgt dafür, dass unsere Dienstleistungen höchsten Qualitätsstandards entsprechen.",
+                image:
+                  "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
               },
               {
                 name: "David Chen",
-                position: "Customer Service Manager",
-                bio: "David is dedicated to ensuring exceptional customer experiences and building lasting client relationships.",
-                image: "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-              }
+                position: "Leiter Kundenservice",
+                bio: "David engagiert sich dafür, außergewöhnliche Kundenerlebnisse zu schaffen und langfristige Beziehungen aufzubauen.",
+                image:
+                  "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+              },
             ].map((person, index) => (
               <div key={index} className="group">
                 <div className="relative overflow-hidden rounded-t-lg h-64">
-                  <div 
+                  <div
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
                     style={{ backgroundImage: `url('${person.image}')` }}
                   />
@@ -164,49 +180,54 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
-        </section>
-        
-        {/* Stats */}
+        </section> */}
+
+        {/* Statistiken
         <section className="mb-16 py-12 px-6 bg-yellow-500 rounded-xl text-black">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             <div>
               <div className="text-4xl font-bold mb-2">15+</div>
-              <div className="text-black/80 font-medium">Years of Experience</div>
+              <div className="text-black/80 font-medium">Jahre Erfahrung</div>
             </div>
             <div>
               <div className="text-4xl font-bold mb-2">500+</div>
-              <div className="text-black/80 font-medium">Projects Completed</div>
+              <div className="text-black/80 font-medium">
+                Abgeschlossene Projekte
+              </div>
             </div>
             <div>
               <div className="text-4xl font-bold mb-2">50+</div>
-              <div className="text-black/80 font-medium">Team Members</div>
+              <div className="text-black/80 font-medium">Teammitglieder</div>
             </div>
             <div>
               <div className="text-4xl font-bold mb-2">98%</div>
-              <div className="text-black/80 font-medium">Client Satisfaction</div>
+              <div className="text-black/80 font-medium">
+                Kundenzufriedenheit
+              </div>
             </div>
           </div>
-        </section>
-        
+        </section> */}
+
         {/* CTA */}
-        <section className="text-center">
-          <h2 className="text-2xl font-bold mb-4">Ready to Work With Us?</h2>
+        {/* <section className="text-center">
+          <h2 className="text-2xl font-bold mb-4">
+            Bereit, mit uns zu arbeiten?
+          </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
-            Contact us today to discuss your cooling needs or schedule a consultation with our experts.
+            Kontaktiere uns noch heute, um über deine Kühlbedürfnisse zu
+            sprechen oder ein Beratungsgespräch zu vereinbaren.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link href="/contact" passHref>
               <Button className="bg-yellow-500 hover:bg-yellow-600 text-black">
-                Contact Us
+                Kontaktiere uns
               </Button>
             </Link>
             <Link href="/booking" passHref>
-              <Button variant="outline">
-                Book a Consultation
-              </Button>
+              <Button variant="outline">Beratung buchen</Button>
             </Link>
           </div>
-        </section>
+        </section> */}
       </div>
     </div>
   );
