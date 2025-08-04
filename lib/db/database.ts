@@ -436,37 +436,105 @@ export async function setBulkAvailability(
     dayOfWeek: number;
     timeSlot: string;
     isAvailable: boolean;
-  }>
+  }>,
+  weekStartDate?: Date
 ): Promise<void> {
+  if (!weekStartDate) {
+    // Fallback: Allgemeine Verfügbarkeiten in alter Tabelle speichern
+    console.log(
+      "🔄 Bulk-Update für allgemeine Verfügbarkeiten:",
+      availabilityData.length,
+      "Einträge"
+    );
+
+    try {
+      // Erst alle bestehenden Einträge für die betroffenen Tage löschen
+      const affectedDays = Array.from(
+        new Set(availabilityData.map((item) => item.dayOfWeek))
+      );
+
+      for (let i = 0; i < affectedDays.length; i++) {
+        const day = affectedDays[i];
+        const { error: deleteError } = await supabase
+          .from("availability")
+          .delete()
+          .eq("day_of_week", day);
+
+        if (deleteError) {
+          console.error(
+            "Fehler beim Löschen bestehender Verfügbarkeiten:",
+            deleteError
+          );
+        }
+      }
+
+      // Dann neue Einträge einfügen
+      const insertData = availabilityData.map((item) => ({
+        day_of_week: item.dayOfWeek,
+        time_slot: item.timeSlot,
+        is_available: item.isAvailable,
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+      }));
+
+      const { error: insertError } = await supabase
+        .from("availability")
+        .insert(insertData);
+
+      if (insertError) {
+        console.error(
+          "Fehler beim Einfügen neuer Verfügbarkeiten:",
+          insertError
+        );
+        throw insertError;
+      }
+
+      console.log("✅ Bulk-Update für allgemeine Verfügbarkeiten erfolgreich");
+    } catch (error) {
+      console.error(
+        "❌ Fehler beim Bulk-Update der allgemeinen Verfügbarkeit:",
+        error
+      );
+      throw new Error(
+        "Allgemeine Verfügbarkeiten konnten nicht gespeichert werden"
+      );
+    }
+    return;
+  }
+
+  // Wochenspezifische Verfügbarkeit in weekly_availability speichern
+  const weekStart = format(weekStartDate, "yyyy-MM-dd");
   console.log(
-    "🔄 Bulk-Update für Verfügbarkeiten:",
+    "💾 Speichere in weekly_availability für Woche:",
+    weekStart,
+    "- Anzahl Einträge:",
+    availabilityData.length
+  );
+  console.log(
+    "🔄 Bulk-Update für wochenspezifische Verfügbarkeiten:",
     availabilityData.length,
-    "Einträge"
+    "Einträge für Woche",
+    weekStart
   );
 
   try {
-    // Erst alle bestehenden Einträge für die betroffenen Tage löschen
-    const affectedDays = Array.from(
-      new Set(availabilityData.map((item) => item.dayOfWeek))
-    );
+    // Erst alle bestehenden Einträge für diese Woche löschen
+    const { error: deleteError } = await supabase
+      .from("weekly_availability")
+      .delete()
+      .eq("week_start_date", weekStart);
 
-    for (let i = 0; i < affectedDays.length; i++) {
-      const day = affectedDays[i];
-      const { error: deleteError } = await supabase
-        .from("availability")
-        .delete()
-        .eq("day_of_week", day);
-
-      if (deleteError) {
-        console.error(
-          "Fehler beim Löschen bestehender Verfügbarkeiten:",
-          deleteError
-        );
-      }
+    if (deleteError) {
+      console.error(
+        "Fehler beim Löschen bestehender wochenspezifischer Verfügbarkeiten:",
+        deleteError
+      );
     }
+    console.log("🗑️ Bestehende weekly_availability Einträge gelöscht");
 
-    // Dann neue Einträge einfügen
+    // Neue wochenspezifische Einträge einfügen
     const insertData = availabilityData.map((item) => ({
+      week_start_date: weekStart,
       day_of_week: item.dayOfWeek,
       time_slot: item.timeSlot,
       is_available: item.isAvailable,
@@ -474,19 +542,164 @@ export async function setBulkAvailability(
       updated_at: new Date().toISOString(),
     }));
 
+    console.log(
+      "📝 Füge neue weekly_availability Einträge ein:",
+      insertData.length
+    );
+    console.log(
+      "📝 Füge ein:",
+      insertData.length,
+      "wochenspezifische Einträge"
+    );
+    console.log("📋 Beispiel-Eintrag:", insertData[0]);
     const { error: insertError } = await supabase
-      .from("availability")
+      .from("weekly_availability")
       .insert(insertData);
 
     if (insertError) {
-      console.error("Fehler beim Einfügen neuer Verfügbarkeiten:", insertError);
+      console.error(
+        "Fehler beim Einfügen neuer weekly_availability Einträge:",
+        insertError
+      );
       throw insertError;
     }
 
-    console.log("✅ Bulk-Update erfolgreich abgeschlossen");
+    console.log("✅ Weekly_availability erfolgreich gespeichert");
   } catch (error) {
-    console.error("❌ Fehler beim Bulk-Update der Verfügbarkeit:", error);
-    throw new Error("Verfügbarkeiten konnten nicht gespeichert werden");
+    console.error("❌ Fehler beim Speichern der weekly_availability:", error);
+    throw new Error("Weekly_availability konnte nicht gespeichert werden");
+  }
+}
+
+// Wochenspezifische Verfügbarkeit setzen
+export async function setWeeklyAvailability(
+  weekStartDate: Date,
+  availabilityData: Array<{
+    dayOfWeek: number;
+    timeSlot: string;
+    isAvailable: boolean;
+  }>
+): Promise<void> {
+  const weekStart = format(weekStartDate, "yyyy-MM-dd");
+  console.log(
+    "💾 setWeeklyAvailability für Woche:",
+    weekStart,
+    "- Anzahl Einträge:",
+    availabilityData.length
+  );
+
+  try {
+    // Erst alle bestehenden Einträge für diese Woche löschen
+    const { error: deleteError } = await supabase
+      .from("weekly_availability")
+      .delete()
+      .eq("week_start_date", weekStart);
+
+    if (deleteError) {
+      console.error(
+        "❌ Fehler beim Löschen bestehender weekly_availability:",
+        deleteError
+      );
+      throw deleteError;
+    }
+    console.log(
+      "🗑️ Bestehende weekly_availability Einträge gelöscht für Woche:",
+      weekStart
+    );
+
+    // Neue wochenspezifische Einträge einfügen
+    const insertData = availabilityData.map((item) => ({
+      week_start_date: weekStart,
+      day_of_week: item.dayOfWeek,
+      time_slot: item.timeSlot,
+      is_available: item.isAvailable,
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
+    }));
+
+    console.log(
+      "📝 Füge neue weekly_availability Einträge ein:",
+      insertData.length
+    );
+    console.log("📋 Beispiel-Eintrag:", insertData[0]);
+
+    const { error: insertError } = await supabase
+      .from("weekly_availability")
+      .insert(insertData);
+
+    if (insertError) {
+      console.error(
+        "❌ Fehler beim Einfügen neuer weekly_availability:",
+        insertError
+      );
+      throw insertError;
+    }
+
+    console.log("✅ setWeeklyAvailability erfolgreich für Woche:", weekStart);
+  } catch (error) {
+    console.error("❌ Fehler in setWeeklyAvailability:", error);
+    throw new Error(
+      "Wochenspezifische Verfügbarkeit konnte nicht gespeichert werden"
+    );
+  }
+}
+
+export async function getWeeklyAvailability(
+  weekStartDate: Date
+): Promise<Record<string, boolean>> {
+  const weekStart = format(weekStartDate, "yyyy-MM-dd");
+  console.log("🔍 Lade aus weekly_availability für Woche:", weekStart);
+
+  try {
+    // Erst versuchen, wochenspezifische Verfügbarkeiten zu laden
+    const { data: weeklyData, error } = await supabase
+      .from("weekly_availability")
+      .select("day_of_week, time_slot, is_available")
+      .eq("week_start_date", weekStart);
+
+    if (error) {
+      console.error("❌ Fehler beim Laden der weekly_availability:", error);
+    }
+
+    console.log(
+      "📊 Weekly_availability Daten gefunden:",
+      weeklyData?.length || 0,
+      "Einträge"
+    );
+
+    if (weeklyData && weeklyData.length > 0) {
+      // Wochenspezifische Daten gefunden
+      const availabilityMap: Record<string, boolean> = {};
+      weeklyData.forEach((item) => {
+        const key = `${item.day_of_week}-${item.time_slot}`;
+        availabilityMap[key] = item.is_available;
+      });
+      console.log("✅ Verwende weekly_availability Daten");
+      return availabilityMap;
+    }
+
+    // Fallback: Standard-Verfügbarkeiten laden
+    console.log(
+      "📋 Keine weekly_availability Daten, lade Standard-Verfügbarkeiten..."
+    );
+    const { data: standardData } = await supabase
+      .from("availability")
+      .select("day_of_week, time_slot, is_available");
+
+    const availabilityMap: Record<string, boolean> = {};
+    standardData?.forEach((item) => {
+      const key = `${item.day_of_week}-${item.time_slot}`;
+      availabilityMap[key] = item.is_available;
+    });
+    console.log(
+      "✅ Verwende Standard-Verfügbarkeiten als Fallback:",
+      Object.keys(availabilityMap).length,
+      "Einträge"
+    );
+    return availabilityMap;
+  } catch (error) {
+    console.error("❌ Fehler beim Laden der Verfügbarkeiten:", error);
+    return {};
   }
 }
 

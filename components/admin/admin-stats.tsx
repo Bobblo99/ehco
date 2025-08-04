@@ -68,61 +68,77 @@ export function AdminStats() {
   if (!stats) return null;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
       <Card>
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Heutige Termine</CardTitle>
+        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 p-3 md:p-6">
+          <CardTitle className="text-xs md:text-sm font-medium">
+            Heutige Termine
+          </CardTitle>
           <Calendar className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
-        <CardContent>
-          <div className="text-2xl font-bold">{stats.todayAppointments}</div>
-          <p className="text-xs text-muted-foreground">
+        <CardContent className="p-3 md:p-6 pt-0">
+          <div className="text-xl md:text-2xl font-bold">
+            {stats.todayAppointments}
+          </div>
+          <p className="text-xs text-muted-foreground hidden sm:block">
             {stats.todayAppointments > stats.yesterdayAppointments ? "+" : ""}
             {stats.todayAppointments - stats.yesterdayAppointments} seit gestern
           </p>
+          <p className="text-xs text-muted-foreground sm:hidden">Heute</p>
         </CardContent>
       </Card>
 
       <Card>
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Gesamte Termine</CardTitle>
+        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 p-3 md:p-6">
+          <CardTitle className="text-xs md:text-sm font-medium">
+            Gesamte Termine
+          </CardTitle>
           <Users className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
-        <CardContent>
-          <div className="text-2xl font-bold">{stats.totalAppointments}</div>
-          <p className="text-xs text-muted-foreground">
+        <CardContent className="p-3 md:p-6 pt-0">
+          <div className="text-xl md:text-2xl font-bold">
+            {stats.totalAppointments}
+          </div>
+          <p className="text-xs text-muted-foreground hidden sm:block">
             Alle gebuchten Termine
           </p>
+          <p className="text-xs text-muted-foreground sm:hidden">Gesamt</p>
         </CardContent>
       </Card>
 
       <Card>
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">
+        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 p-3 md:p-6">
+          <CardTitle className="text-xs md:text-sm font-medium">
             Ausstehende Termine
           </CardTitle>
           <Clock className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
-        <CardContent>
-          <div className="text-2xl font-bold">{stats.pendingAppointments}</div>
-          <p className="text-xs text-muted-foreground">
+        <CardContent className="p-3 md:p-6 pt-0">
+          <div className="text-xl md:text-2xl font-bold">
+            {stats.pendingAppointments}
+          </div>
+          <p className="text-xs text-muted-foreground hidden sm:block">
             Warten auf Bestätigung
           </p>
+          <p className="text-xs text-muted-foreground sm:hidden">Offen</p>
         </CardContent>
       </Card>
 
       <Card>
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">
+        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 p-3 md:p-6">
+          <CardTitle className="text-xs md:text-sm font-medium">
             Monatlicher Umsatz
           </CardTitle>
           <TrendingUp className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
-        <CardContent>
-          <div className="text-2xl font-bold">€{stats.monthlyRevenue}</div>
-          <p className="text-xs text-muted-foreground">
+        <CardContent className="p-3 md:p-6 pt-0">
+          <div className="text-xl md:text-2xl font-bold">
+            €{stats.monthlyRevenue}
+          </div>
+          <p className="text-xs text-muted-foreground hidden sm:block">
             +{stats.revenueGrowth}% zum Vormonat
           </p>
+          <p className="text-xs text-muted-foreground sm:hidden">Umsatz</p>
         </CardContent>
       </Card>
     </div>

@@ -5,6 +5,11 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   images: { unoptimized: true },
+  compiler: {
+    removeConsole: {
+      exclude: ["error", "warn"],
+    },
+  },
 };
 
 module.exports = nextConfig;
