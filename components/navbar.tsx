@@ -55,7 +55,9 @@ export function Navbar() {
       <div className="container mx-auto px-4 flex justify-between items-center h-full">
         <Link href="/" className="flex items-center space-x-2">
           <div className="font-bold text-2xl">
-            <span className="text-yellow-500">EHCO</span>
+            <span className="text-yellow-500">
+              <img className=" w-16" src="/ehco-logo.svg" alt="Logo" />
+            </span>
           </div>
         </Link>
         <div className="hidden md:flex items-center space-x-8">
