@@ -158,7 +158,7 @@ export default function ServicesPage() {
                   </div>
 
                   <div className="pt-4">
-                    <Link href="/booking" passHref>
+                    <Link href="/termin-buchen" passHref>
                       <Button className="bg-yellow-500 hover:bg-yellow-600 text-black">
                         Termin vereinbaren
                       </Button>

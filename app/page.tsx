@@ -55,7 +55,7 @@ export default function Home() {
       </section>
 
       <WhyChooseUs />
-      <TestimonialSection />
+      {/* <TestimonialSection /> */}
 
       <section className="py-16 bg-yellow-500">
         <div className="container mx-auto px-4 text-center">
@@ -66,7 +66,7 @@ export default function Home() {
             Vereinbaren Sie jetzt einen Termin und erleben Sie die innovative
             Schmerztherapie.
           </p>
-          <Link href="/booking" passHref>
+          <Link href="/termin-buchen" passHref>
             <Button className="bg-black text-white hover:bg-gray-800">
               Termin vereinbaren
             </Button>

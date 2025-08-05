@@ -63,7 +63,7 @@ export default function ContactPage() {
                       <div>
                         <h3 className="font-medium">E-Mail</h3>
                         <p className="text-muted-foreground">
-                          info@alphacooling.com
+                          info@ehco.de
                           <br />
                           support@alphacooling.com
                         </p>

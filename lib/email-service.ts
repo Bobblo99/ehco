@@ -225,7 +225,7 @@ function generateCustomerEmailTemplate(data: EmailData): string {
                 <h3>📞 Kontaktinformationen</h3>
                 <p><strong>Adresse:</strong> 123 Cooling Street, Frostville, FZ 12345</p>
                 <p><strong>Telefon:</strong> +49 (555) 123-4567</p>
-                <p><strong>E-Mail:</strong> info@alphacooling.de</p>
+                <p><strong>E-Mail:</strong>info@ehco.de</p>
                 <p><strong>Notfall:</strong> +49 (555) 911-COOL</p>
             </div>
 

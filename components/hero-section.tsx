@@ -44,7 +44,7 @@ export function HeroSection() {
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href="/booking" passHref>
+            <Link href="/termin-buchen" passHref>
               <Button className="bg-yellow-500 hover:bg-yellow-600 text-black text-lg px-6 py-6 h-auto">
                 Jetzt Termin vereinbaren
               </Button>

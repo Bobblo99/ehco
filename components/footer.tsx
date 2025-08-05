@@ -73,7 +73,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/contact"
+                  href="/kontakt"
                   className="text-gray-300 hover:text-yellow-500 transition-colors"
                 >
                   Kontakt
@@ -81,7 +81,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/booking"
+                  href="/termin-buchen"
                   className="text-gray-300 hover:text-yellow-500 transition-colors"
                 >
                   Termin buchen
