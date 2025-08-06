@@ -35,7 +35,6 @@ export const metadata: Metadata = {
   },
 };
 
-// Dynamisch importieren, damit "use client" erhalten bleibt
 const ContactPage = dynamic(() => import("./contact-page"), {
   ssr: false,
 });

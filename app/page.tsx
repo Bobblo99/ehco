@@ -30,7 +30,7 @@ export const metadata = {
     "Moderne Kältetherapie im Landkreis Heilbronn. EHCO hilft Ihnen mit Alpha Cooling® effektiv bei akuten und chronischen Schmerzen – natürlich & medikamentenfrei.",
   robots: "index, follow",
   icons: {
-    icon: "/icon/ehco-logo.svg",
+    icon: "/icon/ehco-logo.ico",
   },
   openGraph: {
     title: "EHCO – Schmerztherapie in Heilbronn",
