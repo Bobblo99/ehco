@@ -205,96 +205,87 @@ export function BookingForm() {
   }
 
   return (
-    <div className="space-y-8">
-      {/* Service-Auswahl */}
-      <div className="space-y-6">
-        <div>
-          <h3 className="text-lg font-semibold mb-4">
+    <div className="space-y-10">
+      {/* === SERVICE-AUSWAHL === */}
+      <Card className="p-6">
+        <CardHeader>
+          <CardTitle className="text-xl font-bold">
             Wählen Sie Ihre Anwendung
-          </h3>
+          </CardTitle>
+        </CardHeader>
 
-          {/* Beratung */}
-          <div className="mb-6">
-            <h4 className="text-md font-medium mb-3 flex items-center gap-2">
-              <MessageCircle className="h-5 w-5 text-blue-500" />
-              Erstberatung
-            </h4>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {consultations.map((service) => (
-                <Card
-                  key={service.id}
-                  className={`cursor-pointer transition-all hover:shadow-md ${
-                    selectedService === service.id
-                      ? "ring-2 ring-yellow-500 bg-yellow-50"
-                      : ""
-                  }`}
-                  onClick={() => onServiceChange(service.id)}
-                >
-                  <CardHeader className="pb-3">
-                    <CardTitle className="text-lg">{service.name}</CardTitle>
-                    <CardDescription>{service.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex justify-between items-center">
-                      <span className="text-green-600 font-semibold">
-                        Kostenlos
-                      </span>
-                      <span className="text-sm text-muted-foreground">
-                        {service.duration} Min
-                      </span>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+        <CardContent>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {/* Erstberatung */}
+            {consultations.map((service) => (
+              <Card
+                key={service.id}
+                className={`cursor-pointer transition-all hover:shadow-md ${
+                  selectedService === service.id
+                    ? "ring-2 ring-yellow-500 bg-yellow-50"
+                    : ""
+                }`}
+                onClick={() => onServiceChange(service.id)}
+              >
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-base font-semibold">
+                    {service.name}
+                  </CardTitle>
+                  <CardDescription className="text-sm">
+                    {service.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="flex justify-between items-center pt-0">
+                  <span className="text-green-600 font-semibold">
+                    Kostenlos
+                  </span>
+                  <span className="text-sm text-muted-foreground">
+                    {service.duration} Min
+                  </span>
+                </CardContent>
+              </Card>
+            ))}
+
+            {/* Kälteanwendungen */}
+            {coolingTreatments.map((service) => (
+              <Card
+                key={service.id}
+                className={`cursor-pointer transition-all hover:shadow-md ${
+                  selectedService === service.id
+                    ? "ring-2 ring-yellow-500 bg-yellow-50"
+                    : ""
+                }`}
+                onClick={() => onServiceChange(service.id)}
+              >
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-base font-semibold">
+                    {service.name}
+                  </CardTitle>
+                  <CardDescription className="text-sm">
+                    {service.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="flex justify-between items-center pt-0">
+                  <span className="text-yellow-600 font-semibold">
+                    €{service.price}
+                  </span>
+                  <span className="text-sm text-muted-foreground">
+                    {service.duration} Min
+                  </span>
+                </CardContent>
+              </Card>
+            ))}
           </div>
+        </CardContent>
+      </Card>
 
-          {/* Kälteanwendung */}
-          <div>
-            <h4 className="text-md font-medium mb-3 flex items-center gap-2">
-              <Snowflake className="h-5 w-5 text-blue-500" />
-              Kälteanwendungen
-            </h4>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {coolingTreatments.map((service) => (
-                <Card
-                  key={service.id}
-                  className={`cursor-pointer transition-all hover:shadow-md ${
-                    selectedService === service.id
-                      ? "ring-2 ring-yellow-500 bg-yellow-50"
-                      : ""
-                  }`}
-                  onClick={() => onServiceChange(service.id)}
-                >
-                  <CardHeader className="pb-3">
-                    <CardTitle className="text-lg">{service.name}</CardTitle>
-                    <CardDescription>{service.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex justify-between items-center">
-                      <span className="text-yellow-600 font-semibold">
-                        €{service.price}
-                      </span>
-                      <span className="text-sm text-muted-foreground">
-                        {service.duration} Min
-                      </span>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Buchungsformular */}
+      {/* === BUCHUNGSFORMULAR === */}
       {selectedService && (
-        <Card>
+        <Card className="p-6 ring-2 ring-yellow-500 shadow-lg animate-fade-in">
           <CardHeader>
-            <CardTitle>Termindetails</CardTitle>
+            <CardTitle className="text-xl font-bold">Termindetails</CardTitle>
             <CardDescription>
-              Füllen Sie die folgenden Informationen aus, um Ihren Termin zu
-              buchen.
+              Füllen Sie das Formular aus, um Ihren Termin zu buchen.
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -303,6 +294,7 @@ export function BookingForm() {
                 onSubmit={form.handleSubmit(onSubmit)}
                 className="space-y-6"
               >
+                {/* Name & E-Mail */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <FormField
                     control={form.control}
@@ -317,7 +309,6 @@ export function BookingForm() {
                       </FormItem>
                     )}
                   />
-
                   <FormField
                     control={form.control}
                     name="email"
@@ -333,6 +324,7 @@ export function BookingForm() {
                   />
                 </div>
 
+                {/* Telefon & Krankenkasse */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <FormField
                     control={form.control}
@@ -347,7 +339,6 @@ export function BookingForm() {
                       </FormItem>
                     )}
                   />
-
                   <FormField
                     control={form.control}
                     name="insuranceProvider"
@@ -363,96 +354,97 @@ export function BookingForm() {
                   />
                 </div>
 
-                <div className="space-y-4">
+                {/* Datumsauswahl */}
+                <FormField
+                  control={form.control}
+                  name="date"
+                  render={({ field }) => (
+                    <FormItem className="flex flex-col">
+                      <FormLabel>Termin-Datum</FormLabel>
+                      <Popover>
+                        <PopoverTrigger asChild>
+                          <FormControl>
+                            <Button
+                              variant={"outline"}
+                              className={cn(
+                                "pl-3 text-left font-normal",
+                                !field.value && "text-muted-foreground"
+                              )}
+                            >
+                              {field.value ? (
+                                format(field.value, "dd.MM.yyyy", {
+                                  locale: de,
+                                })
+                              ) : (
+                                <span>Datum auswählen</span>
+                              )}
+                              <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                            </Button>
+                          </FormControl>
+                        </PopoverTrigger>
+                        <PopoverContent className="w-auto p-0" align="start">
+                          <Calendar
+                            mode="single"
+                            selected={field.value}
+                            onSelect={onDateChange}
+                            disabled={(date) =>
+                              date < new Date() || date.getDay() === 0
+                            }
+                            initialFocus
+                            locale={de}
+                          />
+                        </PopoverContent>
+                      </Popover>
+                      <FormDescription>
+                        Montag bis Samstag verfügbar.
+                      </FormDescription>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                {/* Uhrzeit-Auswahl */}
+                {selectedDate && selectedService && (
                   <FormField
                     control={form.control}
-                    name="date"
+                    name="timeSlot"
                     render={({ field }) => (
-                      <FormItem className="flex flex-col">
-                        <FormLabel>Termin-Datum</FormLabel>
-                        <Popover>
-                          <PopoverTrigger asChild>
-                            <FormControl>
-                              <Button
-                                variant={"outline"}
-                                className={cn(
-                                  "pl-3 text-left font-normal",
-                                  !field.value && "text-muted-foreground"
-                                )}
-                              >
-                                {field.value ? (
-                                  format(field.value, "dd.MM.yyyy", {
-                                    locale: de,
-                                  })
-                                ) : (
-                                  <span>Datum auswählen</span>
-                                )}
-                                <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                              </Button>
-                            </FormControl>
-                          </PopoverTrigger>
-                          <PopoverContent className="w-auto p-0" align="start">
-                            <Calendar
-                              mode="single"
-                              selected={field.value}
-                              onSelect={onDateChange}
-                              disabled={(date) =>
-                                date < new Date() || date.getDay() === 0
+                      <FormItem>
+                        <FormLabel>Verfügbare Uhrzeiten</FormLabel>
+                        <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-2">
+                          {availableSlots.map((slot) => (
+                            <Button
+                              key={slot.time}
+                              type="button"
+                              variant={
+                                field.value === slot.time
+                                  ? "default"
+                                  : "outline"
                               }
-                              initialFocus
-                              locale={de}
-                            />
-                          </PopoverContent>
-                        </Popover>
-                        <FormDescription>
-                          Montag bis Samstag verfügbar.
-                        </FormDescription>
+                              className={cn(
+                                "h-10 text-sm",
+                                !slot.available &&
+                                  "opacity-50 cursor-not-allowed",
+                                field.value === slot.time &&
+                                  "bg-yellow-500 text-black hover:bg-yellow-600"
+                              )}
+                              disabled={!slot.available}
+                              onClick={() => field.onChange(slot.time)}
+                            >
+                              {slot.time}
+                              {field.value === slot.time && (
+                                <CheckCircle className="ml-1 h-3 w-3" />
+                              )}
+                            </Button>
+                          ))}
+                        </div>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
+                )}
 
-                  {selectedDate && selectedService && (
-                    <FormField
-                      control={form.control}
-                      name="timeSlot"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Verfügbare Uhrzeiten</FormLabel>
-                          <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-2">
-                            {availableSlots.map((slot) => (
-                              <Button
-                                key={slot.time}
-                                type="button"
-                                variant={
-                                  field.value === slot.time
-                                    ? "default"
-                                    : "outline"
-                                }
-                                className={cn(
-                                  "h-10 text-sm",
-                                  !slot.available &&
-                                    "opacity-50 cursor-not-allowed",
-                                  field.value === slot.time &&
-                                    "bg-yellow-500 text-black hover:bg-yellow-600"
-                                )}
-                                disabled={!slot.available}
-                                onClick={() => field.onChange(slot.time)}
-                              >
-                                {slot.time}
-                                {field.value === slot.time && (
-                                  <CheckCircle className="ml-1 h-3 w-3" />
-                                )}
-                              </Button>
-                            ))}
-                          </div>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  )}
-                </div>
-
+                {/* Erstbesuch Auswahl */}
                 <FormField
                   control={form.control}
                   name="firstVisit"
@@ -484,6 +476,7 @@ export function BookingForm() {
                   )}
                 />
 
+                {/* Zusatzinfo */}
                 <FormField
                   control={form.control}
                   name="message"
@@ -503,6 +496,7 @@ export function BookingForm() {
                   )}
                 />
 
+                {/* Submit */}
                 <Button
                   type="submit"
                   className="w-full bg-yellow-500 hover:bg-yellow-600 text-black"

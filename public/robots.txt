@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://eh-co.com
+
+# Sitemaps
+Sitemap: https://eh-co.com/sitemap.xml

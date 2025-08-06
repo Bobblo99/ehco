@@ -2,7 +2,6 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { HeroSection } from "@/components/hero-section";
 import { ServiceCard } from "@/components/service-card";
-import { TestimonialSection } from "@/components/testimonial-section";
 import { WhyChooseUs } from "@/components/why-choose-us";
 import ProSiebenLogo from "@/public/prosieben.webp";
 import Sat1Logo from "@/public/sat1.webp";
@@ -24,84 +23,113 @@ import {
   Users,
 } from "lucide-react";
 
+export const metadata = {
+  title:
+    "EHCO – Kältetherapie & Schmerzbehandlung in Hardthausen am Kocher | Alpha Cooling®",
+  description:
+    "Moderne Kältetherapie im Landkreis Heilbronn. EHCO hilft Ihnen mit Alpha Cooling® effektiv bei akuten und chronischen Schmerzen – natürlich & medikamentenfrei.",
+  robots: "index, follow",
+  icons: {
+    icon: "/icon/ehco-logo.svg",
+  },
+  openGraph: {
+    title: "EHCO – Schmerztherapie in Heilbronn",
+    description:
+      "Innovative Alpha Cooling® Kältetherapie bei Schmerzen. Jetzt kostenlos beraten lassen in Heilbronn – für mehr Lebensqualität ganz ohne Medikamente.",
+    url: "https://eh-co.com",
+    type: "website",
+    images: [
+      {
+        url: "/ehco-logo.svg",
+        width: 1200,
+        height: 630,
+        alt: "EHCO – Schmerztherapie",
+      },
+    ],
+  },
+  metadataBase: new URL("https://eh-co.com"),
+};
+
 export default function Home() {
   return (
-    <div className="min-h-screen">
-      <HeroSection />
+    <>
+      <div className="min-h-screen">
+        <HeroSection />
 
-      <section className="py-16 bg-muted">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">
-              Wofür Alpha Cooling® geeignet ist
+        <section className="py-16 bg-muted">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4">
+                Wofür Alpha Cooling® geeignet ist
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Die Kältetherapie kann in verschiedenen Bereichen helfen – von
+                akuten Beschwerden über chronische Schmerzen bis hin zur
+                Regeneration nach dem Sport.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <ServiceCard
+                title="Akute Beschwerden"
+                description="Zielgerichtete Kühlung zur schnellen Linderung von Schmerzen bei akuten Reizungen oder Überlastung."
+                icon="Zap"
+                href="/leistungen#acute"
+              />
+              <ServiceCard
+                title="Chronische Schmerzfelder"
+                description="Langfristige Unterstützung bei chronischen Beschwerden wie Rheuma, Migräne oder Entzündungen."
+                icon="Clock"
+                href="/leistungen#chronic"
+              />
+              <ServiceCard
+                title="Sport & Regeneration"
+                description="Optimale Regeneration nach Belastung – unterstützt Heilung und beugt Übertraining vor."
+                icon="Activity"
+                href="/leistungen#sports"
+              />
+            </div>
+
+            <div className="text-center mt-12">
+              <Link href="/leistungen" passHref>
+                <Button
+                  variant="outline"
+                  className="border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-black"
+                >
+                  Mehr zur Anwendung
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <MediaSection />
+
+        <InfoSection />
+
+        <BenefitSection />
+        <ProcessSection />
+        <BookingInfoBox />
+        <WhyChooseUs />
+
+        <section className="py-16 bg-yellow-500">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-3xl font-bold mb-4 text-black">
+              Der erste Schritt zu mehr Wohlbefinden
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Die Kältetherapie kann in verschiedenen Bereichen helfen – von
-              akuten Beschwerden über chronische Schmerzen bis hin zur
-              Regeneration nach dem Sport.
+            <p className="text-black/80 max-w-2xl mx-auto mb-8">
+              Vereinbaren Sie jetzt einen Termin und erfahren Sie, wie gezielte
+              Kühlung Ihre Lebensqualität positiv beeinflussen kann.
             </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <ServiceCard
-              title="Akute Beschwerden"
-              description="Zielgerichtete Kühlung zur schnellen Linderung von Schmerzen bei akuten Reizungen oder Überlastung."
-              icon="Zap"
-              href="/services#acute"
-            />
-            <ServiceCard
-              title="Chronische Schmerzfelder"
-              description="Langfristige Unterstützung bei chronischen Beschwerden wie Rheuma, Migräne oder Entzündungen."
-              icon="Clock"
-              href="/services#chronic"
-            />
-            <ServiceCard
-              title="Sport & Regeneration"
-              description="Optimale Regeneration nach Belastung – unterstützt Heilung und beugt Übertraining vor."
-              icon="Activity"
-              href="/services#sports"
-            />
-          </div>
-
-          <div className="text-center mt-12">
-            <Link href="/services" passHref>
-              <Button
-                variant="outline"
-                className="border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-black"
-              >
-                Mehr zur Anwendung
+            <Link href="/termin-buchen" passHref>
+              <Button className="bg-black text-white hover:bg-gray-800">
+                Termin vereinbaren
               </Button>
             </Link>
           </div>
-        </div>
-      </section>
-
-      <MediaSection />
-
-      <InfoSection />
-
-      <BenefitSection />
-      <ProcessSection />
-      <BookingInfoBox />
-      <WhyChooseUs />
-
-      <section className="py-16 bg-yellow-500">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4 text-black">
-            Der erste Schritt zu mehr Wohlbefinden
-          </h2>
-          <p className="text-black/80 max-w-2xl mx-auto mb-8">
-            Vereinbaren Sie jetzt einen Termin und erfahren Sie, wie gezielte
-            Kühlung Ihre Lebensqualität positiv beeinflussen kann.
-          </p>
-          <Link href="/termin-buchen" passHref>
-            <Button className="bg-black text-white hover:bg-gray-800">
-              Termin vereinbaren
-            </Button>
-          </Link>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
+    </>
   );
 }
 function MediaSection() {

@@ -75,13 +75,13 @@ export function Navbar() {
               Über uns
             </Link>
             <Link
-              href="/services"
+              href="/leistungen"
               className="font-medium hover:text-yellow-500 transition-colors"
             >
               Leistungen
             </Link>
             <Link
-              href="/contact"
+              href="/kontakt"
               className="font-medium hover:text-yellow-500 transition-colors"
             >
               Kontakt
@@ -94,7 +94,7 @@ export function Navbar() {
                 Termin buchen
               </Button>
             </Link>
-            <Button
+            {/* <Button
               variant="ghost"
               size="icon"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -105,12 +105,12 @@ export function Navbar() {
               ) : (
                 <Moon className="h-5 w-5" />
               )}
-            </Button>
+            </Button> */}
           </div>
 
           {/* Mobile Navigation Toggle */}
           <div className="flex md:hidden items-center space-x-2">
-            <Button
+            {/* <Button
               variant="ghost"
               size="icon"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -121,7 +121,7 @@ export function Navbar() {
               ) : (
                 <Moon className="h-5 w-5" />
               )}
-            </Button>
+            </Button> */}
             <Button
               variant="ghost"
               size="icon"
@@ -155,14 +155,14 @@ export function Navbar() {
                 Über uns
               </Link>
               <Link
-                href="/services"
+                href="/leistungen"
                 className="block py-3 text-lg font-medium hover:text-yellow-500 transition-colors border-b border-border"
                 onClick={() => setIsOpen(false)}
               >
                 Leistungen
               </Link>
               <Link
-                href="/contact"
+                href="/kontakt"
                 className="block py-3 text-lg font-medium hover:text-yellow-500 transition-colors border-b border-border"
                 onClick={() => setIsOpen(false)}
               >

@@ -50,7 +50,7 @@ export function HeroSection() {
                 Jetzt Termin vereinbaren
               </Button>
             </Link>
-            <Link href="/services" passHref>
+            <Link href="/leistungen" passHref>
               <Button
                 variant="outline"
                 className=" hover:bg-white/10 text-lg px-6 py-6 h-auto hover:text-white"

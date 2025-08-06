@@ -1,5 +1,36 @@
 import { BookingForm } from "@/components/booking-form";
-import { Card, CardContent } from "@/components/ui/card";
+
+export const metadata = {
+  title: "Termin buchen – EHCO Kältetherapie in Hardthausen am Kocher",
+  description:
+    "Jetzt Termin für Ihre persönliche Kältetherapie buchen – kostenfreier Beratungstermin in Hardthausen am Kocher. Weniger Schmerzen, mehr Lebensqualität.",
+  robots: "index, follow",
+  metadataBase: new URL("https://eh-co.com"),
+  openGraph: {
+    title: "Termin buchen – EHCO Kältetherapie",
+    description:
+      "Buchen Sie Ihren Alpha Cooling® Termin in Hardthausen – individuell, medikamentenfrei, effektiv gegen Schmerzen.",
+    url: "https://eh-co.com/termin-buchen",
+    type: "website",
+    images: [
+      {
+        url: "/ehco-logo.svg",
+        width: 1200,
+        height: 630,
+        alt: "EHCO – Alpha Cooling® Termin buchen",
+      },
+    ],
+  },
+  icons: {
+    icon: "/icon/ehco-logo.ico",
+  },
+  other: {
+    "geo.region": "DE-BW",
+    "geo.placename": "Hardthausen am Kocher",
+    "geo.position": "49.2361;9.3976",
+    ICBM: "49.2361, 9.3976",
+  },
+};
 
 export default function BookingPage() {
   return (
@@ -14,15 +45,9 @@ export default function BookingPage() {
               unverbindlich.
             </p>
           </div>
+          <BookingForm />
 
-          {/* Booking form */}
-          <Card>
-            <CardContent className="p-6">
-              <BookingForm />
-            </CardContent>
-          </Card>
-
-´Ï          <div className="mt-12 bg-muted p-6 rounded-lg">
+          <div className="mt-12 bg-muted p-6 rounded-lg">
             <h2 className="text-xl font-semibold mb-4">So funktioniert’s</h2>
             <ul className="space-y-3 text-gray-800 text-sm leading-relaxed">
               <li className="flex items-start">

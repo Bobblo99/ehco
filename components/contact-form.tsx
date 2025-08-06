@@ -123,25 +123,13 @@ export function ContactForm() {
           render={({ field }) => (
             <FormItem>
               <FormLabel>Betreff</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
-                <FormControl>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Bitte wählen Sie einen Betreff" />
-                  </SelectTrigger>
-                </FormControl>
-                <SelectContent>
-                  <SelectItem value="general">Allgemeine Anfrage</SelectItem>
-                  <SelectItem value="service">Leistungsanfrage</SelectItem>
-                  <SelectItem value="quote">Angebot anfordern</SelectItem>
-                  <SelectItem value="support">Technischer Support</SelectItem>
-                  <SelectItem value="feedback">Feedback</SelectItem>
-                </SelectContent>
-              </Select>
+              <FormControl>
+                <Input placeholder="Geben Sie den Betreff ein" {...field} />
+              </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-
         <FormField
           control={form.control}
           name="message"
@@ -150,7 +138,7 @@ export function ContactForm() {
               <FormLabel>Nachricht</FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder="Please provide details about your inquiry..."
+                  placeholder="Bitte teilen Sie uns Ihr Anliegen mit..."
                   className="resize-none"
                   rows={5}
                   {...field}

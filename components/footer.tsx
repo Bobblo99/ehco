@@ -7,82 +7,53 @@ import {
   Phone,
   MapPin,
 } from "lucide-react";
+import Image from "next/image";
 
 export function Footer() {
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="bg-gray-900 text-gray-300 py-12">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+          {/* Navigation */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-yellow-500">EHCO</h3>
-            <p className="text-gray-300">
-              Ihr Partner für innovative Kühlungslösungen, die das Wohlbefinden
-              von Sportlern und aktiven Menschen fördern.
-            </p>
-            <div className="flex space-x-4">
-              <Link
-                href="https://facebook.com"
-                className="hover:text-yellow-500 transition-colors"
-              >
-                <Facebook size={20} />
-                <span className="sr-only">Facebook</span>
-              </Link>
-              <Link
-                href="https://instagram.com"
-                className="hover:text-yellow-500 transition-colors"
-              >
-                <Instagram size={20} />
-                <span className="sr-only">Instagram</span>
-              </Link>
-              <Link
-                href="https://twitter.com"
-                className="hover:text-yellow-500 transition-colors"
-              >
-                <Twitter size={20} />
-                <span className="sr-only">Twitter</span>
-              </Link>
-            </div>
-          </div>
-
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Schnelle Links</h3>
-            <ul className="space-y-2">
+            <h3 className="text-lg font-semibold">Angebot</h3>
+            <ul className="space-y-3">
               <li>
                 <Link
-                  href="/"
-                  className="text-gray-300 hover:text-yellow-500 transition-colors"
+                  href="/leistungen#kaelte-akut"
+                  className="hover:text-yellow-500 transition-colors"
                 >
-                  Startseite
+                  Akute Schmerztherapie
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/services"
-                  className="text-gray-300 hover:text-yellow-500 transition-colors"
+                  href="/leistungen#kaelte-chronisch"
+                  className="hover:text-yellow-500 transition-colors"
                 >
-                  Leistungen
+                  Chronische Schmerzen
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/about"
-                  className="text-gray-300 hover:text-yellow-500 transition-colors"
+                  href="/leistungen#kaelte-sport"
+                  className="hover:text-yellow-500 transition-colors"
                 >
-                  Über uns
+                  Sport & Regeneration
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/kontakt"
-                  className="text-gray-300 hover:text-yellow-500 transition-colors"
+                  href="/leistungen#kaelte-neuro"
+                  className="hover:text-yellow-500 transition-colors"
                 >
-                  Kontakt
+                  Neurologische Anwendung
                 </Link>
               </li>
               <li>
                 <Link
                   href="/termin-buchen"
-                  className="text-gray-300 hover:text-yellow-500 transition-colors"
+                  className="hover:text-yellow-500 transition-colors"
                 >
                   Termin buchen
                 </Link>
@@ -90,69 +61,70 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Leistungen</h3>
-            {/* <ul className="space-y-2">
-              <li>
-                <Link
-                  href="/services#installation"
-                  className="text-gray-300 hover:text-yellow-500 transition-colors"
-                >
-                  Installation
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services#maintenance"
-                  className="text-gray-300 hover:text-yellow-500 transition-colors"
-                >
-                  Wartung
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services#repair"
-                  className="text-gray-300 hover:text-yellow-500 transition-colors"
-                >
-                  Reparatur
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services#consulting"
-                  className="text-gray-300 hover:text-yellow-500 transition-colors"
-                >
-                  Beratung
-                </Link>
-              </li>
-            </ul> */}
-          </div>
-
+          {/* Kontakt */}
           <div className="space-y-4">
             <h3 className="text-lg font-semibold">Kontakt</h3>
             <ul className="space-y-3">
               <li className="flex items-start space-x-3">
                 <MapPin size={20} className="flex-shrink-0 text-yellow-500" />
-                <span className="text-gray-300">
-                  123 Kühlstraße, Froststadt, FZ 12345
+                <span>
+                  Untere au 12
+                  <br />
+                  74239 Hardthausen am Kocher
                 </span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone size={20} className="flex-shrink-0 text-yellow-500" />
-                <span className="text-gray-300">+49 (555) 123-4567</span>
+                <span>+49 0160 - 98988048</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail size={20} className="flex-shrink-0 text-yellow-500" />
-                <span className="text-gray-300">info@ehco.de</span>
+                <span> info@eh-co.com</span>
               </li>
             </ul>
           </div>
+
+          {/* Über uns + Logo */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold">Über uns</h3>
+            <div className="flex items-center justify-between gap-4">
+              <p className="text-sm text-gray-400 leading-relaxed max-w-xs">
+                EHCO steht für moderne, effektive Kältetherapie auf Basis von
+                Alpha Cooling®. Unser Ziel: weniger Schmerzen, mehr
+                Lebensqualität – ganz ohne Medikamente.
+              </p>
+              <Link href="/">
+                <Image
+                  src="/ehco-logo.svg"
+                  width={120}
+                  height={80}
+                  alt="EHCO-Logo"
+                  className="flex-shrink-0 self-center"
+                />
+              </Link>
+            </div>
+          </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-10 pt-6 text-center text-gray-400">
-          <p>
+        <div className="border-t border-gray-800 pt-6 text-center text-sm text-gray-500">
+          <p className="mb-2">
             &copy; {new Date().getFullYear()} EHCO. Alle Rechte vorbehalten.
           </p>
+          <div className="space-x-4">
+            <Link
+              href="/impressum"
+              className="hover:text-yellow-500 transition-colors"
+            >
+              Impressum
+            </Link>
+            <span>|</span>
+            <Link
+              href="/datenschutz"
+              className="hover:text-yellow-500 transition-colors"
+            >
+              Datenschutz
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
