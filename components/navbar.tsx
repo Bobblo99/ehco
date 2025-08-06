@@ -86,7 +86,7 @@ export function Navbar() {
             >
               Kontakt
             </Link>
-            <Link href="/booking" passHref>
+            <Link href="/termin-buchen" passHref>
               <Button
                 variant="default"
                 className="bg-yellow-500 hover:bg-yellow-600 text-black"
@@ -169,7 +169,7 @@ export function Navbar() {
                 Kontakt
               </Link>
               <div className="pt-4">
-                <Link href="/booking" passHref>
+                <Link href="/termin-buchen" passHref>
                   <Button
                     variant="default"
                     className="w-full bg-yellow-500 hover:bg-yellow-600 text-black text-lg py-6"

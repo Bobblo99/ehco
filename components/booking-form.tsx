@@ -210,14 +210,14 @@ export function BookingForm() {
       <div className="space-y-6">
         <div>
           <h3 className="text-lg font-semibold mb-4">
-            Wählen Sie Ihre Behandlung
+            Wählen Sie Ihre Anwendung
           </h3>
 
-          {/* Beratungen */}
+          {/* Beratung */}
           <div className="mb-6">
             <h4 className="text-md font-medium mb-3 flex items-center gap-2">
               <MessageCircle className="h-5 w-5 text-blue-500" />
-              Beratungen
+              Erstberatung
             </h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {consultations.map((service) => (
@@ -236,8 +236,8 @@ export function BookingForm() {
                   </CardHeader>
                   <CardContent>
                     <div className="flex justify-between items-center">
-                      <span className="text-yellow-600 font-semibold">
-                        €{service.price}
+                      <span className="text-green-600 font-semibold">
+                        Kostenlos
                       </span>
                       <span className="text-sm text-muted-foreground">
                         {service.duration} Min
@@ -249,7 +249,7 @@ export function BookingForm() {
             </div>
           </div>
 
-          {/* Kälteanwendungen */}
+          {/* Kälteanwendung */}
           <div>
             <h4 className="text-md font-medium mb-3 flex items-center gap-2">
               <Snowflake className="h-5 w-5 text-blue-500" />

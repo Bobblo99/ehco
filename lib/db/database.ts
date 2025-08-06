@@ -34,54 +34,40 @@ export interface Service {
 
 export const services: Service[] = [
   {
-    id: "consultation-30",
-    name: "Beratung Kälteanwendung",
+    id: "consultation-free",
+    name: "Erstberatung & Testanwendung",
     duration: 30,
     description:
-      "Umfassende Beratung zu Kälteanwendungen und Behandlungsmöglichkeiten",
-    price: 60,
+      "Kostenloser Einstieg: Persönliche Beratung und erste Anwendung. Dauer: ca. 30 Minuten.",
+    price: 0,
     category: "consultation",
   },
   {
-    id: "consultation-45",
-    name: "Ausführliche Beratung",
-    duration: 45,
-    description: "Detaillierte Beratung mit Behandlungsplan",
-    price: 80,
-    category: "consultation",
-  },
-  {
-    id: "cooling-30",
-    name: "Kälteanwendung 30 Min",
+    id: "cooling-single",
+    name: "Kälteanwendung – Einzelsitzung",
     duration: 30,
-    description: "Gezielte Kältetherapie für 30 Minuten",
-    price: 90,
+    description: "30 Minuten gezielte Kältetherapie für bestehende Kunden.",
+    price: 25,
     category: "cooling",
   },
-  {
-    id: "cooling-45",
-    name: "Kälteanwendung 45 Min",
-    duration: 45,
-    description: "Intensive Kältetherapie für 45 Minuten",
-    price: 120,
-    category: "cooling",
-  },
-  {
-    id: "cooling-60",
-    name: "Kälteanwendung 60 Min",
-    duration: 60,
-    description: "Umfassende Kältetherapie für 60 Minuten",
-    price: 150,
-    category: "cooling",
-  },
-  {
-    id: "cooling-90",
-    name: "Kälteanwendung 90 Min",
-    duration: 90,
-    description: "Intensive Langzeit-Kältetherapie für 90 Minuten",
-    price: 200,
-    category: "cooling",
-  },
+  // {
+  //   id: "cooling-10",
+  //   name: "10er-Paket Kälteanwendung",
+  //   duration: 30,
+  //   description:
+  //     "10 Anwendungen à 30 Minuten – optimal für regelmäßige Nutzung.",
+  //   price: 210,
+  //   category: "cooling",
+  // },
+  // {
+  //   id: "cooling-20",
+  //   name: "20er-Paket Kälteanwendung",
+  //   duration: 30,
+  //   description:
+  //     "20 Anwendungen à 30 Minuten – maximale Wirkung zum Vorteilspreis.",
+  //   price: 380,
+  //   category: "cooling",
+  // },
 ];
 
 // Termine abrufen

@@ -34,13 +34,14 @@ export function HeroSection() {
           )}
         >
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-            Die neue Art der{" "}
-            <span className="text-yellow-500">Schmerztherapie</span>
+            Die moderne Lösung bei&nbsp;
+            <span className="text-yellow-500">Schmerzen</span>
           </h1>
           <p className="text-xl text-gray-200 max-w-2xl mx-auto mb-8">
-            ALPHA COOLING PROFESSIONAL senkt die Körperkerntemperatur innerhalb
-            von 2 Minuten. Effektive Schmerzbehandlung mit Soforteffekt bei
-            chronischen und akuten Schmerzen.
+            Weniger Schmerzen. Mehr Lebensqualität.
+            <br />
+            Alpha Cooling® lindert akute und chronische Beschwerden – effektiv,
+            schonend und ganz ohne Medikamente.
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-4">
