@@ -68,12 +68,12 @@ export function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link
+            {/* <Link
               href="/about"
               className="font-medium hover:text-yellow-500 transition-colors"
             >
               Über uns
-            </Link>
+            </Link> */}
             <Link
               href="/leistungen"
               className="font-medium hover:text-yellow-500 transition-colors"
@@ -147,13 +147,13 @@ export function Navbar() {
           />
           <div className="fixed top-16 left-0 right-0 bg-background border-b shadow-lg">
             <div className="container mx-auto px-4 py-6 space-y-4">
-              <Link
+              {/* <Link
                 href="/about"
                 className="block py-3 text-lg font-medium hover:text-yellow-500 transition-colors border-b border-border"
                 onClick={() => setIsOpen(false)}
               >
                 Über uns
-              </Link>
+              </Link> */}
               <Link
                 href="/leistungen"
                 className="block py-3 text-lg font-medium hover:text-yellow-500 transition-colors border-b border-border"

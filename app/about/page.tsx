@@ -6,8 +6,8 @@ import { Check, Award, Clock, Users, ThumbsUp, Star } from "lucide-react";
 export default function AboutPage() {
   return (
     <div className="min-h-screen pt-24 pb-16">
-      <div className="container mx-auto px-4">
-        {/* Hero Section */}
+      {/* <div className="container mx-auto px-4">
+   
         <div className="relative rounded-xl overflow-hidden mb-16">
           <div
             className="absolute inset-0 bg-cover bg-center"
@@ -30,7 +30,6 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Unsere Geschichte */}
         <section className="mb-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -68,7 +67,6 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Mission & Werte */}
         <section className="mb-16 py-16 px-6 bg-muted rounded-xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Unsere Mission & Werte</h2>
@@ -128,9 +126,9 @@ export default function AboutPage() {
               </ul>
             </div>
           </div>
-        </section>
+        </section> */}
 
-        {/* Unser Team
+      {/* Unser Team
         <section className="mb-16">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Unser Führungsteam</h2>
@@ -182,7 +180,7 @@ export default function AboutPage() {
           </div>
         </section> */}
 
-        {/* Statistiken
+      {/* Statistiken
         <section className="mb-16 py-12 px-6 bg-yellow-500 rounded-xl text-black">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             <div>
@@ -208,8 +206,8 @@ export default function AboutPage() {
           </div>
         </section> */}
 
-        {/* CTA */}
-        {/* <section className="text-center">
+      {/* CTA */}
+      {/* <section className="text-center">
           <h2 className="text-2xl font-bold mb-4">
             Bereit, mit uns zu arbeiten?
           </h2>
@@ -228,7 +226,6 @@ export default function AboutPage() {
             </Link>
           </div>
         </section> */}
-      </div>
     </div>
   );
 }
