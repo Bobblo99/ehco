@@ -369,8 +369,8 @@ function BookingInfoBox() {
             </div>
             <p className="text-sm text-gray-700">
               Beim ersten Besuch erhältst du eine kostenlose Beratung inkl.
-              Analyse (ca. 30 Minuten) sowie deine erste Fit Cooling® Anwendung
-              – unverbindlich & kostenfrei.
+              Analyse (ca. 30 Minuten) sowie deine erste Anwendung –
+              unverbindlich & kostenfrei.
             </p>
           </div>
 
