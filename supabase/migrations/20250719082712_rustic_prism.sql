@@ -1,5 +1,5 @@
 /*
-  # Initiales Schema für Alpha Cooling Professional
+  # Initiales Schema für EHCO 
 
   1. Neue Tabellen
     - `appointments`

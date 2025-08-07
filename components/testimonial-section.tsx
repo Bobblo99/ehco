@@ -9,7 +9,7 @@ const testimonials = [
   {
     id: 1,
     quote:
-      "Alpha Cooling Professional hat unsere Büroatmosphäre komplett verändert. Ihre Kühlungslösungen sind energieeffizient und äußerst effektiv.",
+      "EHCO hat unsere Büroatmosphäre komplett verändert. Ihre Kühlungslösungen sind energieeffizient und äußerst effektiv.",
     author: "Sarah Johnson",
     title: "Büroleiterin, TechCorp",
   },

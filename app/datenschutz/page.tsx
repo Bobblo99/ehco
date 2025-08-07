@@ -1,7 +1,23 @@
+"use client";
+import { Button } from "@/components/ui/button";
+import { openCookieSettings } from "@/lib/utils";
+
 export default function DatenschutzPage() {
+  const isBrowser = typeof window !== "undefined";
   return (
     <div className="flex justify-center items-start min-h-screen pt-32">
       <div className=" align-middle max-w-3xl p-6 rounded-lg shadow-md">
+        {isBrowser && (
+          <div className="flex justify-end mb-4 ">
+            <Button
+              color="bg-blue-700"
+              variant="outline"
+              onClick={() => openCookieSettings()}
+            >
+              Cookie Einstellungen ändern
+            </Button>
+          </div>
+        )}
         <h1 className="text-3xl font-bold text-gray-900 mb-6">
           Datenschutzerklärung
         </h1>

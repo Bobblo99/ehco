@@ -162,7 +162,10 @@ export function AvailabilityManager() {
     if (dayDate) {
       const dateString = format(dayDate, "yyyy-MM-dd");
       const appointment = appointments.find(
-        (apt) => apt.date === dateString && apt.time_slot === time
+        (apt) =>
+          apt.date === dateString &&
+          apt.time_slot === time &&
+          apt.status !== "cancelled"
       );
       if (appointment) {
         return { isBooked: true, patientName: appointment.patient_name };

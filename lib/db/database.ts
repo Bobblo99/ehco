@@ -1,5 +1,5 @@
 import { supabase } from "./supabase";
-import { format, isToday, isFuture } from "date-fns";
+import { format, isToday, isFuture, startOfWeek } from "date-fns";
 import { sendBookingNotification } from "../email-service";
 
 export interface Appointment {
@@ -50,24 +50,6 @@ export const services: Service[] = [
     price: 25,
     category: "cooling",
   },
-  // {
-  //   id: "cooling-10",
-  //   name: "10er-Paket Kälteanwendung",
-  //   duration: 30,
-  //   description:
-  //     "10 Anwendungen à 30 Minuten – optimal für regelmäßige Nutzung.",
-  //   price: 210,
-  //   category: "cooling",
-  // },
-  // {
-  //   id: "cooling-20",
-  //   name: "20er-Paket Kälteanwendung",
-  //   duration: 30,
-  //   description:
-  //     "20 Anwendungen à 30 Minuten – maximale Wirkung zum Vorteilspreis.",
-  //   price: 380,
-  //   category: "cooling",
-  // },
 ];
 
 // Termine abrufen
@@ -221,26 +203,15 @@ export async function getAvailableTimeSlots(
     .from("appointments")
     .select("time_slot")
     .eq("date", dateString)
-    .neq("status", "cancelled");
+    .in("status", ["pending", "confirmed", "completed"]);
 
   const bookedSlots = bookedAppointments?.map((apt) => apt.time_slot) || [];
   console.log("📅 Gebuchte Slots:", bookedSlots);
 
-  // Verfügbarkeitseinstellungen für den Wochentag abrufen
-  const { data: availabilitySettings } = await supabase
-    .from("availability")
-    .select("time_slot, is_available")
-    .eq("day_of_week", dayOfWeek);
-
-  const availabilityMap: Record<string, boolean> = {};
-  availabilitySettings?.forEach((setting) => {
-    availabilityMap[setting.time_slot] = setting.is_available;
-  });
+  // Wochenspezifische oder Standard-Verfügbarkeiten laden
+  const weekStart = startOfWeek(date, { weekStartsOn: 1 });
+  const availabilityMap = await getWeeklyAvailability(weekStart);
   console.log("⚙️ Verfügbarkeitseinstellungen:", availabilityMap);
-  console.log(
-    "📊 Anzahl Verfügbarkeitseinstellungen:",
-    availabilitySettings?.length || 0
-  );
 
   // Alle möglichen Zeitslots generieren
   const allSlots: Array<{ time: string; available: boolean }> = [];
@@ -259,15 +230,16 @@ export async function getAvailableTimeSlots(
         .toString()
         .padStart(2, "0")}`;
 
-      // NEUE LOGIK: Slot ist nur verfügbar wenn:
-      // 1. Nicht gebucht UND
-      // 2. Explizit in der Availability-Tabelle als verfügbar (is_available = true) markiert
+      // Slot ist verfügbar wenn:
+      // 1. NICHT gebucht UND
+      // 2. In Verfügbarkeitseinstellungen als verfügbar markiert
       const isBooked = bookedSlots.includes(time);
-      const isAvailableInSettings = availabilityMap[time] === true; // Nur wenn explizit true
+      const isAvailableInSettings =
+        availabilityMap[`${dayOfWeek}-${time}`] === true;
       const available = !isBooked && isAvailableInSettings;
 
       console.log(
-        `⏰ ${time}: gebucht=${isBooked}, verfügbar_in_settings=${isAvailableInSettings}, final_verfügbar=${available}`
+        `⏰ ${time}: gebucht=${isBooked}, verfügbar_in_settings=${isAvailableInSettings}, final=${available}`
       );
 
       allSlots.push({ time, available });
@@ -282,6 +254,11 @@ export async function getAvailableTimeSlots(
     "❌ Nicht verfügbare Slots:",
     allSlots.filter((s) => !s.available).map((s) => s.time)
   );
+  console.log(
+    "🚫 Gebuchte Slots:",
+    allSlots.filter((s) => bookedSlots.includes(s.time)).map((s) => s.time)
+  );
+
   return allSlots;
 }
 

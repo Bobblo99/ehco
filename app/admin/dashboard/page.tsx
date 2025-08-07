@@ -86,10 +86,10 @@ export default function AdminDashboard() {
                 Admin Dashboard
               </h1>
               <p className="text-sm md:text-base text-gray-600 hidden sm:block">
-                Alpha Cooling Professional - Terminverwaltung
+                EHCO - Terminverwaltung
               </p>
               <p className="text-xs text-gray-600 sm:hidden">
-                ACP Terminverwaltung
+                EHCO Terminverwaltung
               </p>
             </div>
             <Button

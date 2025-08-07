@@ -21,7 +21,7 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-black/60" />
           <div className="relative z-10 py-20 px-6 text-center text-white">
             <h1 className="text-4xl font-bold mb-4">
-              Über Alpha Cooling Professional
+              Über Alpha  
             </h1>
             <p className="text-xl max-w-3xl mx-auto">
               Wir sind darauf spezialisiert, herausragende Kühllösungen für
@@ -36,7 +36,7 @@ export default function AboutPage() {
               <h2 className="text-3xl font-bold mb-6">Unsere Geschichte</h2>
               <div className="space-y-4 text-lg">
                 <p>
-                  Gegründet im Jahr 2005, begann Alpha Cooling Professional mit
+                  Gegründet im Jahr 2005, begann Alpha   mit
                   einer einfachen Mission: Zuverlässige und energieeffiziente
                   Kühllösungen für Unternehmen bereitzustellen. Was als kleines
                   Team engagierter Techniker begann, hat sich zu einem führenden

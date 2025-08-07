@@ -18,7 +18,7 @@ export interface EmailData {
 const EMAIL_CONFIG = {
   adminEmail: "admin@alphacooling.de", // Hier die gewünschte Admin-E-Mail eintragen
   fromEmail: "noreply@alphacooling.de",
-  companyName: "Alpha Cooling Professional",
+  companyName: "EHCO",
 };
 
 // E-Mail-Template für Admin-Benachrichtigung

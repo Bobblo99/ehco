@@ -124,7 +124,20 @@ export function BookingForm() {
 
   const loadAvailableSlots = async (date: Date) => {
     try {
+      console.log(
+        "🔍 Lade verfügbare Zeitslots für:",
+        format(date, "yyyy-MM-dd")
+      );
       const slots = await getAvailableTimeSlots(date);
+      console.log("📅 Erhaltene Slots:", slots);
+      console.log(
+        "✅ Verfügbare Slots:",
+        slots.filter((s) => s.available).map((s) => s.time)
+      );
+      console.log(
+        "❌ Blockierte Slots:",
+        slots.filter((s) => !s.available).map((s) => s.time)
+      );
       setAvailableSlots(slots);
     } catch (error) {
       console.error("Fehler beim Laden der Zeitslots:", error);
@@ -424,20 +437,27 @@ export function BookingForm() {
                               className={cn(
                                 "h-10 text-sm",
                                 !slot.available &&
-                                  "opacity-50 cursor-not-allowed",
+                                  "opacity-50 cursor-not-allowed bg-gray-200 text-gray-500 hover:bg-gray-200",
                                 field.value === slot.time &&
                                   "bg-yellow-500 text-black hover:bg-yellow-600"
                               )}
                               disabled={!slot.available}
                               onClick={() => field.onChange(slot.time)}
                             >
-                              {slot.time}
+                              {slot.available ? slot.time : `${slot.time} ✗`}
                               {field.value === slot.time && (
                                 <CheckCircle className="ml-1 h-3 w-3" />
                               )}
                             </Button>
                           ))}
                         </div>
+                        <FormDescription>
+                          {availableSlots.filter((s) => s.available).length > 0
+                            ? `${
+                                availableSlots.filter((s) => s.available).length
+                              } verfügbare Zeitslots`
+                            : "Keine verfügbaren Zeitslots für dieses Datum"}
+                        </FormDescription>
                         <FormMessage />
                       </FormItem>
                     )}
