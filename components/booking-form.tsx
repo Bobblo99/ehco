@@ -352,7 +352,7 @@ export function BookingForm() {
                       </FormItem>
                     )}
                   />
-                  <FormField
+                  {/* <FormField
                     control={form.control}
                     name="insuranceProvider"
                     render={({ field }) => (
@@ -364,7 +364,7 @@ export function BookingForm() {
                         <FormMessage />
                       </FormItem>
                     )}
-                  />
+                  /> */}
                 </div>
 
                 {/* Datumsauswahl */}
