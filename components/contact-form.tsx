@@ -26,13 +26,19 @@ import { useToast } from "@/hooks/use-toast";
 import { Send, Loader2 } from "lucide-react";
 
 const formSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
-  email: z.string().email({ message: "Please enter a valid email address." }),
-  phone: z.string().min(10, { message: "Please enter a valid phone number." }),
-  subject: z.string().min(2, { message: "Subject is required." }),
-  message: z
+  name: z
     .string()
-    .min(10, { message: "Message must be at least 10 characters." }),
+    .min(2, { message: "Der Name muss mindestens 2 Zeichen enthalten." }),
+  email: z
+    .string()
+    .email({ message: "Bitte gib eine gültige E-Mail-Adresse ein." }),
+  phone: z
+    .string()
+    .min(10, { message: "Bitte gib eine gültige Telefonnummer ein." }),
+  subject: z.string().min(2, { message: "Bitte gib einen Betreff ein." }),
+  message: z.string().min(10, {
+    message: "Die Nachricht muss mindestens 10 Zeichen enthalten.",
+  }),
 });
 
 type FormValues = z.infer<typeof formSchema>;

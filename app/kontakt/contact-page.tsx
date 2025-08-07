@@ -79,7 +79,7 @@ export default function ContactPage() {
                       </div>
                     </div>
 
-                    <div className="flex items-start">
+                    {/* <div className="flex items-start">
                       <Clock className="h-5 w-5 text-yellow-500 mr-3 mt-0.5" />
                       <div>
                         <h3 className="font-medium">Geschäftszeiten</h3>
@@ -91,7 +91,7 @@ export default function ContactPage() {
                           Sonntag: Geschlossen
                         </p>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </CardContent>
               </Card>
