@@ -105,7 +105,7 @@ export default function AdminLoginPage() {
                       <div className="relative">
                         <User className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                         <Input
-                          placeholder="admin@alphacooling.de"
+                          placeholder="E-Mail eingeben"
                           className="pl-10"
                           type="email"
                           {...field}
@@ -161,16 +161,6 @@ export default function AdminLoginPage() {
               </Button>
             </form>
           </Form>
-
-          <div className="mt-6 p-4 bg-muted rounded-lg">
-            <p className="text-sm text-muted-foreground text-center">
-              <strong>Demo-Zugangsdaten:</strong>
-              <br />
-              E-Mail: admin@alphacooling.de
-              <br />
-              Passwort: admin123
-            </p>
-          </div>
         </CardContent>
       </Card>
     </div>
