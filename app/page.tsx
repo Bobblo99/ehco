@@ -136,7 +136,7 @@ function MediaSection() {
     <section className="py-12 bg-white">
       <div className="max-w-6xl mx-auto px-4 text-center">
         <h2 className="text-2xl font-semibold mb-8 text-gray-800">
-          Bekannt aus Medien
+          Bekannt aus Medien und TV
         </h2>
 
         <div className="flex flex-wrap justify-center items-center gap-8">

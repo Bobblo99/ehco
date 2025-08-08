@@ -248,7 +248,7 @@ function generateCustomerEmailTemplate(data: EmailData): string {
         </div>
 
         <div class="footer">
-            <p>${EMAIL_CONFIG.companyName} - Die neue Art der Schmerztherapie</p>
+            <p>${EMAIL_CONFIG.companyName} - Die neue Art der Kältetherapie</p>
             <p>Diese E-Mail wurde automatisch generiert.</p>
         </div>
     </div>

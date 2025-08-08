@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "EHCO – Alpha Cooling® Kältetherapie in Hardthausen bei Heilbronn",
     description:
-      "EHCO bietet moderne Schmerztherapie durch Alpha Cooling® im Raum Heilbronn. Jetzt kostenfrei Termin vereinbaren.",
+      "EHCO bietet moderne Kältetherapie durch Alpha Cooling® im Raum Heilbronn. Jetzt kostenfrei Termin vereinbaren.",
     url: "https://eh-co.com",
     siteName: "EHCO",
     locale: "de_DE",

@@ -43,7 +43,7 @@ export function WhyChooseUs() {
           className="mx-auto mb-4 w-16 drop-shadow-lg "
         />
         <h2 className="text-3xl font-bold mb-4">
-          Warum Alpha Cooling® Schmerztherapie?
+          Warum Alpha Cooling® Kältetherapie?
         </h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">
           Mit innovativer Kühltechnologie möchten wir Menschen helfen,
