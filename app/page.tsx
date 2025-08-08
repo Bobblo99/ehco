@@ -24,8 +24,7 @@ import {
 } from "lucide-react";
 
 export const metadata = {
-  title:
-    "EHCO – Kältetherapie & Schmerzbehandlung in Hardthausen am Kocher | Alpha Cooling®",
+  title: "EHCO – Kältetherapie in Hardthausen am Kocher | Alpha Cooling®",
   description:
     "Moderne Kältetherapie im Landkreis Heilbronn. EHCO hilft Ihnen mit Alpha Cooling® effektiv bei akuten und chronischen Schmerzen – natürlich & medikamentenfrei.",
   robots: "index, follow",
@@ -33,7 +32,7 @@ export const metadata = {
     icon: "/icon/ehco-logo.ico",
   },
   openGraph: {
-    title: "EHCO – Schmerztherapie in Heilbronn",
+    title: "EHCO – Kältetherapie in Heilbronn",
     description:
       "Innovative Alpha Cooling® Kältetherapie bei Schmerzen. Jetzt kostenlos beraten lassen in Heilbronn – für mehr Lebensqualität ganz ohne Medikamente.",
     url: "https://eh-co.com",
@@ -43,7 +42,7 @@ export const metadata = {
         url: "/ehco-logo.svg",
         width: 1200,
         height: 630,
-        alt: "EHCO – Schmerztherapie",
+        alt: "EHCO – Kälteanwendung Heilbronn",
       },
     ],
   },

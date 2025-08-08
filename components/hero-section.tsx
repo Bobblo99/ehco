@@ -34,14 +34,14 @@ export function HeroSection() {
           )}
         >
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-            Die moderne Lösung bei&nbsp;
-            <span className="text-yellow-500">Schmerzen</span>
+            Moderne Kälteanwendung bei&nbsp;
+            <span className="text-yellow-500">Beschwerden</span>
           </h1>
           <p className="text-xl text-gray-200 max-w-2xl mx-auto mb-8">
-            Weniger Schmerzen. Mehr Lebensqualität.
+            Weniger Belastung, mehr Wohlbefinden.
             <br />
-            Alpha Cooling® lindert akute und chronische Beschwerden – effektiv,
-            schonend und ganz ohne Medikamente.
+            Alpha Cooling® unterstützt bei akuten und chronischen Beschwerden –
+            gezielt, schonend und ohne Medikamente.
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-4">

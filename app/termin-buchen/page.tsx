@@ -3,7 +3,7 @@ import { BookingForm } from "@/components/booking-form";
 export const metadata = {
   title: "Termin buchen – EHCO Kältetherapie in Hardthausen am Kocher",
   description:
-    "Jetzt Termin für Ihre persönliche Kältetherapie buchen – kostenfreier Beratungstermin in Hardthausen am Kocher. Weniger Schmerzen, mehr Lebensqualität.",
+    "Jetzt Termin für Ihre persönliche Kältetherapie buchen – kostenfreier Beratungstermin in Hardthausen am Kocher. Mehr Lebensqualität.",
   robots: "index, follow",
   metadataBase: new URL("https://eh-co.com"),
   openGraph: {

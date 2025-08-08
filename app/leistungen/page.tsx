@@ -49,15 +49,15 @@ export default function ServicesPage() {
   const services: ServiceProps[] = [
     {
       id: "kaelte-akut",
-      title: "Akute Schmerztherapie",
+      title: "Begleitende Anwendung bei akuten Beschwerden",
       description:
-        "Gezielte Kältebehandlung zur schnellen Linderung von akuten Schmerzen und Entzündungen.",
+        "Gezielte Kälteanwendung zur unterstützenden Behandlung von akuten Schmerz- oder Entzündungszuständen.",
       features: [
-        "Schmerzlinderung innerhalb von 2 Minuten",
-        "Reduktion von Entzündungen und Schwellungen",
-        "Ideal bei akuten Verletzungen und Überlastung",
-        "Unterstützt die Heilung unmittelbar nach dem Ereignis",
-        "Sanfte Alternative zu Schmerzmitteln",
+        "Anwendung kann als angenehm und entlastend empfunden werden",
+        "Unterstützt die körpereigene Regeneration",
+        "Ergänzend einsetzbar bei akuten Beschwerden oder Überlastung",
+        "Wird häufig unmittelbar nach belastenden Ereignissen angewendet",
+        "Mögliche Alternative zur medikamentenfreien Unterstützung",
       ],
       icon: <ThermometerSnowflake className="h-8 w-8" />,
       image:
@@ -65,15 +65,15 @@ export default function ServicesPage() {
     },
     {
       id: "kaelte-chronisch",
-      title: "Chronische Schmerzbehandlung",
+      title: "Begleitende Anwendung bei chronischen Beschwerden",
       description:
-        "Nachhaltige Kühltherapie zur Linderung langfristiger Beschwerden und zur Verbesserung des Alltags.",
+        "Kälteanwendungen können im Umgang mit länger bestehenden Beschwerden unterstützend wirken – für mehr Wohlbefinden im Alltag.",
       features: [
-        "Sanfte Behandlung chronischer Schmerzen",
-        "Reduktion von Medikamenteneinsatz",
-        "Hilfreich bei Rheuma, Arthrose & Co.",
-        "Mehr Lebensqualität im Alltag",
-        "Individuell anpassbare Anwendungen",
+        "Sanfte Unterstützung bei chronischen Schmerzsymptomen",
+        "Kann zur Reduktion von Belastung beitragen",
+        "Wird häufig bei Rheuma, Arthrose & Co. ergänzend eingesetzt",
+        "Begleitend zur Steigerung des allgemeinen Wohlbefindens",
+        "Anwendung individuell abstimmbar",
       ],
       icon: <Clock className="h-8 w-8" />,
       image:
@@ -118,13 +118,13 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h1 className="text-3xl font-bold mb-4">
-              Einsatzbereiche von Alpha Cooling®
+              Anwendungsbereiche von Alpha Cooling®
             </h1>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Die Kältetherapie mit Alpha Cooling® eignet sich für
-              unterschiedlichste Bedürfnisse – von akuten Beschwerden über
-              chronische Schmerzen bis hin zur Regeneration nach körperlicher
-              Belastung.
+              Die Kälteanwendung mit Alpha Cooling® kommt unterstützend bei
+              verschiedenen körperlichen Herausforderungen zum Einsatz – etwa
+              bei akuten oder chronischen Beschwerden sowie zur Förderung der
+              Regeneration nach körperlicher Belastung.
             </p>
           </div>
 

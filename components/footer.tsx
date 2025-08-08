@@ -23,7 +23,7 @@ export function Footer() {
                   href="/leistungen#kaelte-akut"
                   className="hover:text-yellow-500 transition-colors"
                 >
-                  Akute Schmerztherapie
+                  Unterstützende Kältetherapie bei akuten Symptomen
                 </Link>
               </li>
               <li>
@@ -31,7 +31,7 @@ export function Footer() {
                   href="/leistungen#kaelte-chronisch"
                   className="hover:text-yellow-500 transition-colors"
                 >
-                  Chronische Schmerzen
+                  Unterstützende Kältetherapie bei Chronische Schmerzen
                 </Link>
               </li>
               <li>

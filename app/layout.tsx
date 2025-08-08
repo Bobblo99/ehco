@@ -10,13 +10,13 @@ import CookieBanner from "@/components/cookie-consent";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "EHCO – Kältetherapie & Schmerzbehandlung in Hardthausen",
+  title: "EHCO – Kältetherapie in Hardthausen",
   description:
     "EHCO - Moderne Kältetherapie mit Alpha Cooling® im Raum Heilbronn – schnell, wirksam & medikamentenfrei. Jetzt kostenfrei beraten lassen!",
 
   keywords: [
     "Kältetherapie",
-    "Schmerztherapie",
+    "Kälteanwendung",
     "Alpha Cooling",
     "Heilbronn",
     "Hardthausen",
