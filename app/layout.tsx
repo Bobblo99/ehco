@@ -6,6 +6,7 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Toaster } from "@/components/ui/toaster";
 import CookieBanner from "@/components/cookie-consent";
+import { MaintenanceBanner } from "@/components/maintenance-banner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -79,6 +80,7 @@ export default function RootLayout({
             <Navbar />
             <main className="flex-1">{children}</main>
             <Footer />
+            <MaintenanceBanner type="warning" />
           </div>
           <Toaster />
         </ThemeProvider>
