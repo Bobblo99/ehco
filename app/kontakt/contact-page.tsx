@@ -75,23 +75,11 @@ export default function ContactPage() {
                       <Mail className="h-5 w-5 text-yellow-500 mr-3 mt-0.5" />
                       <div>
                         <h3 className="font-medium">E-Mail</h3>
-                        <p className="text-muted-foreground">info@eh-co.com</p>
-                      </div>
-                    </div>
-
-                    {/* <div className="flex items-start">
-                      <Clock className="h-5 w-5 text-yellow-500 mr-3 mt-0.5" />
-                      <div>
-                        <h3 className="font-medium">Geschäftszeiten</h3>
                         <p className="text-muted-foreground">
-                          Montag – Freitag: 08:00 – 18:00 Uhr
-                          <br />
-                          Samstag: 09:00 – 14:00 Uhr
-                          <br />
-                          Sonntag: Geschlossen
+                          sabine.ehmann@eh-co.com
                         </p>
                       </div>
-                    </div> */}
+                    </div>
                   </div>
                 </CardContent>
               </Card>
