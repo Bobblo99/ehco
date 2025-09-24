@@ -156,11 +156,7 @@ export function BookingForm() {
       console.log("🚀 Starte Terminbuchung mit Daten:", values);
 
       const service = getServiceById(values.serviceType);
-      if (!service) {
-        throw new Error("Service nicht gefunden");
-      }
-
-      console.log("📋 Service gefunden:", service);
+      if (!service) throw new Error("Service nicht gefunden");
 
       const appointmentData = {
         patient_name: values.name,
@@ -180,11 +176,34 @@ export function BookingForm() {
         first_visit: values.firstVisit === "yes",
       };
 
-      console.log("💾 Speichere Termin:", appointmentData);
-
       const result = await createAppointment(appointmentData);
-
       console.log("✅ Termin erfolgreich erstellt:", result);
+
+      const emailPayload = {
+        patientName: values.name,
+        patientEmail: values.email,
+        patientPhone: values.phone,
+        serviceName: service.name,
+        duration: service.duration,
+        price: service.price,
+        date: format(values.date, "dd.MM.yyyy", { locale: de }),
+        timeSlot: values.timeSlot,
+        notes: values.message || "",
+        insuranceProvider: values.insuranceProvider || "",
+        firstVisit: values.firstVisit === "yes",
+      };
+
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(emailPayload),
+      });
+
+      if (!res.ok) {
+        console.error("⚠️ E-Mail-API fehlgeschlagen:", await res.text());
+      } else {
+        console.log("✅ E-Mail-Benachrichtigung gesendet");
+      }
 
       toast({
         title: "Termin erfolgreich gebucht! 📧",
@@ -203,7 +222,6 @@ export function BookingForm() {
       setAvailableSlots([]);
     } catch (error) {
       console.error("❌ Buchungsfehler:", error);
-      console.error("Buchungsfehler:", error);
       toast({
         title: "Fehler beim Buchen",
         description:

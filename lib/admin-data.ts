@@ -7,7 +7,6 @@ import {
   isToday,
   isFuture,
 } from "date-fns";
-import { sendBookingNotification } from "./email-service";
 
 export interface Appointment {
   id: string;

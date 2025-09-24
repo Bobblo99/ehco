@@ -140,11 +140,17 @@ export async function createAppointment(
     };
 
     try {
-      await sendBookingNotification(emailData);
+      const response = await fetch("/api/email-send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(emailData),
+      });
+
+      if (!response.ok) throw new Error("Email API failed");
+
       console.log("✅ E-Mail-Benachrichtigung gesendet");
     } catch (emailError) {
       console.error("⚠️ E-Mail-Versand fehlgeschlagen:", emailError);
-      // Termin trotzdem erfolgreich, nur E-Mail fehlgeschlagen
     }
   }
 

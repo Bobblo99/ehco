@@ -58,22 +58,34 @@ export function ContactForm() {
     },
   });
 
-  function onSubmit(values: FormValues) {
+  async function onSubmit(values: FormValues) {
     setIsSubmitting(true);
 
-    // Simulate API call
-    setTimeout(() => {
-      console.log(values);
-      setIsSubmitting(false);
+    try {
+      const res = await fetch("/api/contact-send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+
+      if (!res.ok) throw new Error("Kontakt-API fehlgeschlagen");
 
       toast({
-        title: "Message Sent",
-        description:
-          "Thank you for contacting us. We'll get back to you shortly.",
+        title: "Nachricht gesendet",
+        description: "Vielen Dank für Ihre Anfrage. Wir melden uns bald.",
       });
 
       form.reset();
-    }, 1500);
+    } catch (error) {
+      console.error("⚠️ Kontaktformular Fehler:", error);
+      toast({
+        title: "Fehler",
+        description: "Ihre Nachricht konnte nicht gesendet werden.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -155,12 +167,21 @@ export function ContactForm() {
           )}
         />
 
-        <button
+        <Button
           type="submit"
-          className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-4 rounded"
+          className="w-full bg-yellow-500 hover:bg-yellow-600 text-black"
+          disabled={isSubmitting}
         >
-          Nachricht senden
-        </button>
+          {isSubmitting ? (
+            <>
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Wird gesendet...
+            </>
+          ) : (
+            <>
+              <Send className="mr-2 h-4 w-4" /> Nachricht senden
+            </>
+          )}
+        </Button>
       </form>
     </Form>
   );

@@ -111,11 +111,30 @@ export function AppointmentList({ filter }: AppointmentListProps) {
     newStatus: "confirmed" | "cancelled" | "completed"
   ) => {
     try {
+      // 1. DB-Update
       await updateAppointment(id, { status: newStatus });
       await loadAppointments();
 
+      // 2. Wenn bestätigt → Mail senden
+      if (newStatus === "confirmed") {
+        const appointment = appointments.find((a) => a.id === id);
+        if (appointment) {
+          await fetch("/api/appointment-confirm", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              patientName: appointment.patient_name,
+              patientEmail: appointment.patient_email,
+              serviceName: appointment.service_name,
+              date: appointment.date,
+              timeSlot: appointment.time_slot,
+            }),
+          });
+        }
+      }
+
       const statusMessages = {
-        confirmed: "Termin wurde bestätigt",
+        confirmed: "Termin wurde bestätigt (Kunde informiert)",
         cancelled: "Termin wurde abgesagt",
         completed: "Termin wurde als abgeschlossen markiert",
       };
@@ -133,6 +152,7 @@ export function AppointmentList({ filter }: AppointmentListProps) {
       });
     }
   };
+
   const getStatusBadge = (status: string) => {
     const statusConfig = {
       confirmed: {
