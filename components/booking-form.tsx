@@ -54,6 +54,7 @@ import {
   getAvailableTimeSlots,
   createAppointment,
 } from "@/lib/db/database";
+import { Checkbox } from "@radix-ui/react-checkbox";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name muss mindestens 2 Zeichen haben." }),
@@ -72,6 +73,9 @@ const formSchema = z.object({
   insuranceProvider: z.string().optional(),
   firstVisit: z.enum(["yes", "no"], {
     required_error: "Bitte geben Sie an, ob dies Ihr erster Besuch ist.",
+  }),
+  consent: z.boolean().refine((val) => val === true, {
+    message: "Bitte stimmen Sie der Speicherung Ihrer Daten zu.",
   }),
 });
 
@@ -99,6 +103,7 @@ export function BookingForm() {
       message: "",
       insuranceProvider: "",
       firstVisit: "no",
+      consent: false,
     },
   });
 
@@ -354,7 +359,6 @@ export function BookingForm() {
                     )}
                   />
                 </div>
-
                 {/* Telefon & Krankenkasse */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <FormField
@@ -384,7 +388,6 @@ export function BookingForm() {
                     )}
                   /> */}
                 </div>
-
                 {/* Datumsauswahl */}
                 <FormField
                   control={form.control}
@@ -433,7 +436,6 @@ export function BookingForm() {
                     </FormItem>
                   )}
                 />
-
                 {/* Uhrzeit-Auswahl */}
                 {selectedDate && selectedService && (
                   <FormField
@@ -481,7 +483,6 @@ export function BookingForm() {
                     )}
                   />
                 )}
-
                 {/* Erstbesuch Auswahl */}
                 <FormField
                   control={form.control}
@@ -513,7 +514,6 @@ export function BookingForm() {
                     </FormItem>
                   )}
                 />
-
                 {/* Zusatzinfo */}
                 <FormField
                   control={form.control}
@@ -530,6 +530,55 @@ export function BookingForm() {
                         />
                       </FormControl>
                       <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="consent"
+                  render={({ field }) => (
+                    <FormItem className="flex items-start space-x-3">
+                      <FormControl>
+                        <button
+                          type="button"
+                          onClick={() => field.onChange(!field.value)}
+                          className={cn(
+                            "h-5 w-8 flex items-center justify-center rounded border transition-colors",
+                            field.value
+                              ? "bg-yellow-500 border-yellow-500"
+                              : "bg-white border-gray-300 hover:border-yellow-400"
+                          )}
+                        >
+                          {field.value && (
+                            <CheckCircle className="h-4 w-4 text-black" />
+                          )}
+                        </button>
+                      </FormControl>
+                      <div className="space-y-1 leading-tight">
+                        <FormLabel className="text-sm font-normal">
+                          Ich erkläre mich damit einverstanden, dass meine Daten
+                          für die Terminverwaltung gespeichert und nur so lange
+                          aufbewahrt werden, wie es erforderlich ist. Weitere
+                          Informationen findest du in unserer{" "}
+                          <a
+                            href="/datenschutz"
+                            className="text-yellow-600 underline hover:text-yellow-700"
+                            target="_blank"
+                          >
+                            Datenschutzerklärung
+                          </a>{" "}
+                          und im{" "}
+                          <a
+                            href="/impressum"
+                            className="text-yellow-600 underline hover:text-yellow-700"
+                            target="_blank"
+                          >
+                            Impressum
+                          </a>
+                          .
+                        </FormLabel>
+                        <FormMessage />
+                      </div>
                     </FormItem>
                   )}
                 />
